@@ -1,0 +1,106 @@
+<ul class="nav nav-justified">
+    <li  class="active"><a href="#/view1">1. Applicant Information</a></li>
+    <li><a href="#/view2">2. Upload Documents</a></li>
+    <li><a href="#">3. Secure Checkout</a></li>
+    <li><a href="#">4. Confirmation</a></li>
+</ul>
+<div class="header clearfix">
+    <h1 class="text-muted">Applicant Information</h1>
+</div>
+<form role="form">
+    <div class="form-group form-inline">
+        <label >Applicant Name:</label>
+            <input type="text" class="form-control"  placeholder="First" >
+            <input type="text" class="form-control"  placeholder="Middle">
+            <input type="text" class="form-control"  placeholder="Last">
+    </div>
+    <div class="form-group form-inline">
+        <label >Alias:</label>
+            <input type="text" class="form-control"  placeholder="First" >
+            <input type="text" class="form-control"  placeholder="Middle">
+            <input type="text" class="form-control"  placeholder="Last">
+    </div>
+    <div class="form-group">
+        <div class="form-inline">
+            <label >Height:</label>
+            <input type="number" class="form-control"  placeholder="Inches" >
+            <label >Weight:</label>
+            <input type="number" class="form-control" placeholder="Pounds" >
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-inline">
+            <label >Hair Color:</label>
+            <select class="form-control" >
+                <option value="BAL">Bald</option>
+                <option value="BLK">Black</option>
+                <option value="BLN">Blonde (or strawberry)</option>
+                <option value="BLU">Blue</option>
+                <option value="BRO">Brown</option>
+                <option value="GRY">Gray (or partially gray)</option>
+                <option value="GRN">Green</option>
+                <option value="ONG">Orange</option>
+                <option value="PLE">Purple</option>
+                <option value="PNK">Pink</option>
+                <option value="RED">Red (or Auburn)</option>
+                <option value="SDY">Sandy</option>
+                <option value="WHI">White</option>
+                <option value="XXX">Unknown</option>
+            </select>
+            <label >Eye Color:</label>
+            <select class="form-control" >
+                <option value="BLK">Black</option>
+                <option value="BLU">Blue</option>
+                <option value="BLK">Brown</option>
+                <option value="BLK">Gray</option>
+                <option value="BLK">Green</option>
+                <option value="BLK">Hazel</option>
+                <option value="BLK">Maroon</option>
+                <option value="BLK">Multicolored</option>
+                <option value="BLK">Pink</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group form-inline">
+        <label>Social Security #:</label>
+        <input type="number" class="form-control" required pattern="^d{3}-d{2}-d{4}$" placeholder="###-##-####" />
+        <label>US Citizen or Legal Permanent Resident:  </label>
+        <input type="radio"  name="citizen" value="Y" checked> Yes
+        <input type="radio"  name="citizen" value="N"> No
+    </div>
+
+    <div class="form-group form-inline">
+        <label>Date of Birth:</label>
+        <input type="date" class="form-control"/>
+        <label>Place of Birth:</label>
+        <select class="form-control" ng-model="placeOfBirth">
+            <option ng-repeat="country in countries" value="{{country.alpha2Code}}">{{country.name}}</option>
+        </select>
+    </div>
+    <div class="form-group form-inline">
+        <label>Country of Residence:</label>
+        <select class="form-control"  ng-model="countryOfResidence">
+            <option ng-repeat="country in countries" value="{{country.alpha2Code}}">{{country.name}}</option>
+        </select>
+        <label>Country of Citizenship:</label>
+        <select class="form-control" ng-model="countryOfCitizenship">
+            <option ng-repeat="country in countries" value="{{country.alpha2Code}}">{{country.name}}</option>
+        </select>
+
+    </div>
+    <div class="form-group form-inline">
+        <label>Race:</label>
+        <select class="form-control" >
+            <option value="A">Asian</option>
+            <option value="B">Black</option>
+            <option value="I">American Indian</option>
+            <option value="N">Native Hawaiian or Other Pacific Islander</option>
+            <option value="U">Unknown</option>
+            <option value="W">White</option>
+        </select>
+    </div>
+    <!--<div class="checkbox">-->
+        <!--<label><input type="checkbox"> Remember me</label>-->
+    <!--</div>-->
+    <button type="button" class="btn btn-default">Next</button>
+</form>
