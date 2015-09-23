@@ -10,28 +10,29 @@
 <form role="form">
     <div class="form-group form-inline">
         <label >Applicant Name:</label>
-            <input type="text" class="form-control"  placeholder="First" >
-            <input type="text" class="form-control"  placeholder="Middle">
-            <input type="text" class="form-control"  placeholder="Last">
+            <input type="text" class="form-control" ng-model="applicant.name.first"  placeholder="First" >
+            <input type="text" class="form-control"  ng-model="applicant.name.middle" placeholder="Middle">
+            <input type="text" class="form-control"  ng-model="applicant.name.last" placeholder="Last">
     </div>
     <div class="form-group form-inline">
         <label >Alias:</label>
-            <input type="text" class="form-control"  placeholder="First" >
-            <input type="text" class="form-control"  placeholder="Middle">
-            <input type="text" class="form-control"  placeholder="Last">
+            <input type="text" class="form-control" ng-model="applicant.alias.first"  placeholder="First" >
+            <input type="text" class="form-control" ng-model="applicant.alias.middle"  placeholder="Middle">
+            <input type="text" class="form-control" ng-model="applicant.alias.last"  placeholder="Last">
     </div>
     <div class="form-group">
         <div class="form-inline">
             <label >Height:</label>
-            <input type="number" class="form-control"  placeholder="Inches" >
+            <input type="number" class="form-control" ng-model="applicant.height.feet"  placeholder="Feet" >
+            <input type="number" class="form-control" ng-model="applicant.height.inches"  placeholder="Inches" >
             <label >Weight:</label>
-            <input type="number" class="form-control" placeholder="Pounds" >
+            <input type="number" class="form-control" ng-model="applicant.weight"  placeholder="Pounds" >
         </div>
     </div>
     <div class="form-group">
         <div class="form-inline">
             <label >Hair Color:</label>
-            <select class="form-control" >
+            <select class="form-control" ng-model="applicant.hairColor" >
                 <option value="BAL">Bald</option>
                 <option value="BLK">Black</option>
                 <option value="BLN">Blonde (or strawberry)</option>
@@ -48,7 +49,7 @@
                 <option value="XXX">Unknown</option>
             </select>
             <label >Eye Color:</label>
-            <select class="form-control" >
+            <select class="form-control" ng-model="applicant.eyeColor" >
                 <option value="BLK">Black</option>
                 <option value="BLU">Blue</option>
                 <option value="BLK">Brown</option>
@@ -63,34 +64,34 @@
     </div>
     <div class="form-group form-inline">
         <label>Social Security #:</label>
-        <input type="number" class="form-control" required pattern="^d{3}-d{2}-d{4}$" placeholder="###-##-####" />
+        <input type="text" class="form-control" required pattern="^d{3}-d{2}-d{4}$" placeholder="###-##-####" ng-model="applicant.ssn" />
         <label>US Citizen or Legal Permanent Resident:  </label>
-        <input type="radio"  name="citizen" value="Y" checked> Yes
-        <input type="radio"  name="citizen" value="N"> No
+        <input type="radio"  name="citizen" value="true" ng-model="applicant.isUsCitizen"> Yes
+        <input type="radio"  name="citizen" value="false" ng-model="applicant.isUsCitizen"> No
     </div>
 
     <div class="form-group form-inline">
         <label>Date of Birth:</label>
-        <input type="date" class="form-control"/>
+        <input type="date" class="form-control" ng-model="applicant.dateOfBirth"/>
         <label>Place of Birth:</label>
-        <select class="form-control" ng-model="placeOfBirth">
+        <select class="form-control" ng-model="applicant.placeOfBirth">
             <option ng-repeat="country in countries" value="{{country.alpha2Code}}">{{country.name}}</option>
         </select>
     </div>
     <div class="form-group form-inline">
         <label>Country of Residence:</label>
-        <select class="form-control"  ng-model="countryOfResidence">
+        <select class="form-control"  ng-model="applicant.residentCountry">
             <option ng-repeat="country in countries" value="{{country.alpha2Code}}">{{country.name}}</option>
         </select>
         <label>Country of Citizenship:</label>
-        <select class="form-control" ng-model="countryOfCitizenship">
+        <select class="form-control" ng-model="applicant.citizenCountry">
             <option ng-repeat="country in countries" value="{{country.alpha2Code}}">{{country.name}}</option>
         </select>
 
     </div>
     <div class="form-group form-inline">
         <label>Race:</label>
-        <select class="form-control" >
+        <select class="form-control" ng-model="applicant.race" >
             <option value="A">Asian</option>
             <option value="B">Black</option>
             <option value="I">American Indian</option>
@@ -102,5 +103,5 @@
     <!--<div class="checkbox">-->
         <!--<label><input type="checkbox"> Remember me</label>-->
     <!--</div>-->
-    <button type="button" class="btn btn-default">Next</button>
+    <button type="button" class="btn btn-default" ng-click="createOrder()">Next</button>
 </form>
