@@ -2,7 +2,7 @@
 
 angular.module('myApp.gisService', [])
 
-.factory('gisService', ['$http','$q', function($http, $q) {
+.factory('gisService', ['$http', function($http) {
 
     var gisService = {};
 
